@@ -2,8 +2,8 @@
 <html lang="en" id="htmlRoot">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SrpskiTamil • 1 to 1000 Serbian Words Learning SaaS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>LearnGrid.IN • 1 to 1000 Serbian Words Learning SaaS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
@@ -28,6 +28,11 @@
       margin: 0;
       padding: 0;
       font-family: 'Plus Jakarta Sans', 'Noto Sans Tamil', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -39,7 +44,6 @@
       flex-direction: column;
     }
 
-    /* Ambient Glows */
     .mesh-glow {
       position: fixed;
       border-radius: 50%;
@@ -51,7 +55,6 @@
     .glow-1 { width: 550px; height: 550px; background: #4f46e5; top: -200px; left: -150px; }
     .glow-2 { width: 450px; height: 450px; background: #0891b2; bottom: 50px; right: -120px; }
 
-    /* Sound Wave Pulse Rings (Background Opacity 50% during speech) */
     .sound-wave-overlay {
       position: fixed;
       inset: 0;
@@ -63,11 +66,7 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-
-    .sound-wave-overlay.active {
-      opacity: 0.5;
-    }
-
+    .sound-wave-overlay.active { opacity: 0.5; }
     .wave-ring {
       position: absolute;
       border-radius: 50%;
@@ -76,20 +75,17 @@
       transform: scale(0.5);
       opacity: 0;
     }
-
     .sound-wave-overlay.active .ring-1 {
       width: 320px;
       height: 320px;
       animation: soundPulse 1.8s infinite ease-out;
     }
-
     .sound-wave-overlay.active .ring-2 {
       width: 520px;
       height: 520px;
       border-color: #06b6d4;
       animation: soundPulse 1.8s infinite ease-out 0.45s;
     }
-
     .sound-wave-overlay.active .ring-3 {
       width: 760px;
       height: 760px;
@@ -103,7 +99,6 @@
       100% { transform: scale(1.4); opacity: 0; }
     }
 
-    /* Sound Frequency Bars */
     .audio-visualizer-bar {
       display: inline-flex;
       align-items: center;
@@ -114,9 +109,7 @@
       opacity: 0;
       transition: opacity 0.2s ease;
     }
-    .audio-visualizer-bar.playing {
-      opacity: 1;
-    }
+    .audio-visualizer-bar.playing { opacity: 1; }
     .viz-bar {
       width: 3px;
       background: #38bdf8;
@@ -133,7 +126,6 @@
       100% { height: 16px; background: #6366f1; }
     }
 
-    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -142,7 +134,7 @@
       -webkit-backdrop-filter: blur(16px);
       background: rgba(9, 13, 22, 0.85);
       border-bottom: 1px solid var(--card-border);
-      padding: 0.85rem 1.75rem;
+      padding: 0.85rem 1.25rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -153,15 +145,16 @@
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.5rem;
       font-weight: 800;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       background: linear-gradient(135deg, #fff 30%, var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -173,16 +166,16 @@
       gap: 0.45rem;
       background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.35);
-      padding: 0.3rem 0.75rem;
+      padding: 0.25rem 0.65rem;
       border-radius: 9999px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
       color: #34d399;
     }
 
     .pulse-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       background-color: #10b981;
       border-radius: 50%;
       box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
@@ -198,7 +191,7 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
     }
 
@@ -206,15 +199,17 @@
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
       color: var(--text-main);
-      padding: 0.45rem 0.9rem;
+      padding: 0.45rem 0.8rem;
       border-radius: 9999px;
       font-weight: 700;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
+      min-height: 38px;
       transition: all 0.2s ease;
+      text-decoration: none;
     }
     .nav-btn:hover {
       background: rgba(99, 102, 241, 0.25);
@@ -226,24 +221,32 @@
       color: #34d399;
     }
 
+    .donate-header-btn {
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fbbf24;
+    }
+    .donate-header-btn:hover {
+      background: rgba(245, 158, 11, 0.3);
+      border-color: #f59e0b;
+      color: #fff;
+    }
+
     .reset-btn {
       background: rgba(239, 68, 68, 0.12);
       border: 1px solid rgba(239, 68, 68, 0.3);
       color: #fca5a5;
     }
-    .reset-btn:hover {
-      background: rgba(239, 68, 68, 0.25);
-      border-color: #ef4444;
-      color: #fff;
-    }
 
-    /* Live Activity Toast */
     .toast-container {
       position: fixed;
       bottom: 1.5rem;
-      left: 1.5rem;
+      left: 1rem;
+      right: 1rem;
       z-index: 999;
       pointer-events: none;
+      display: flex;
+      justify-content: center;
     }
 
     .activity-toast {
@@ -252,15 +255,16 @@
       -webkit-backdrop-filter: blur(14px);
       border: 1px solid rgba(99, 102, 241, 0.35);
       border-radius: 1rem;
-      padding: 0.85rem 1.15rem;
+      padding: 0.75rem 1rem;
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.75rem;
       box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.7);
       transform: translateY(120%);
       opacity: 0;
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
-      max-width: 380px;
+      max-width: 420px;
+      width: 100%;
     }
 
     .activity-toast.show {
@@ -269,8 +273,8 @@
     }
 
     .toast-avatar {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: linear-gradient(135deg, #6366f1, #06b6d4);
       display: flex;
@@ -278,38 +282,23 @@
       justify-content: center;
       color: #fff;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.95rem;
       flex-shrink: 0;
-      border: 2px solid rgba(255, 255, 255, 0.15);
     }
 
     .toast-content {
-      font-size: 0.85rem;
-      line-height: 1.4;
+      font-size: 0.8rem;
+      line-height: 1.35;
     }
-    .toast-content strong {
-      color: #ffffff;
-      display: block;
-    }
-    .toast-content span {
-      color: #38bdf8;
-      font-weight: 600;
-    }
-    .toast-content span.donation {
-      color: #34d399;
-      font-weight: 700;
-    }
-    .toast-time {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 0.15rem;
-    }
+    .toast-content strong { color: #ffffff; }
+    .toast-content span { color: #38bdf8; font-weight: 600; }
+    .toast-content span.donation { color: #34d399; font-weight: 700; }
+    .toast-time { font-size: 0.7rem; color: var(--text-muted); }
 
-    /* Hero Section */
     .hero-section {
       position: relative;
       z-index: 10;
-      padding: 3rem 1.5rem 1.75rem 1.5rem;
+      padding: 2.25rem 1rem 1.5rem 1rem;
       max-width: 1080px;
       margin: 0 auto;
       display: flex;
@@ -322,68 +311,69 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.35rem 1rem;
+      padding: 0.35rem 0.85rem;
       border-radius: 9999px;
       background: rgba(99, 102, 241, 0.12);
       border: 1px solid rgba(99, 102, 241, 0.3);
       color: #a5b4fc;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .hero-title {
-      font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+      font-size: clamp(1.75rem, 4.5vw, 3.2rem);
       font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+      line-height: 1.25;
+      margin-bottom: 0.85rem;
       background: linear-gradient(135deg, #ffffff 40%, #94a3b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      padding: 0 0.5rem;
     }
 
     .hero-subtitle {
-      font-size: 1.1rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
       color: var(--text-muted);
       max-width: 680px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
       line-height: 1.6;
+      padding: 0 0.5rem;
     }
 
-    /* Founder Card with Email ID */
     .founder-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 1.5rem;
-      padding: 1.5rem 2rem;
+      border-radius: 1.25rem;
+      padding: 1.25rem;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.25rem;
       max-width: 760px;
       width: 100%;
       text-align: left;
       backdrop-filter: blur(12px);
       box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
 
     .founder-avatar {
-      width: 82px;
-      height: 82px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
       background: linear-gradient(135deg, #6366f1, #06b6d4);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 800;
       border: 3px solid rgba(255, 255, 255, 0.15);
       flex-shrink: 0;
     }
 
     .founder-info h3 {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #fff;
       display: flex;
@@ -392,16 +382,16 @@
       flex-wrap: wrap;
     }
     .founder-role {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--secondary);
       font-weight: 600;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
     }
     .founder-bio {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       line-height: 1.5;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .founder-email-badge {
@@ -411,30 +401,20 @@
       background: rgba(99, 102, 241, 0.15);
       border: 1px solid rgba(99, 102, 241, 0.35);
       color: #cbd5e1;
-      padding: 0.3rem 0.75rem;
-      border-radius: 0.6rem;
-      font-size: 0.82rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 0.5rem;
+      font-size: 0.78rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .founder-email-badge:hover {
-      background: rgba(99, 102, 241, 0.3);
-      color: #38bdf8;
-      border-color: #38bdf8;
-      transform: translateY(-1px);
     }
 
-    /* FULL-WIDTH SCALED & SLOWED DOWN GRADUATES CAROUSEL */
     .graduates-showcase-box {
       width: 100vw;
-     
       background: rgba(17, 24, 39, 0.75);
       border-top: 1px solid var(--card-border);
       border-bottom: 1px solid var(--card-border);
-      padding: 1.25rem 1rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      padding: 1.25rem 0.5rem;
+      margin-bottom: 2rem;
       position: relative;
       overflow: hidden;
     }
@@ -449,7 +429,7 @@
     }
 
     .graduates-title {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: #cbd5e1;
       display: flex;
@@ -463,7 +443,7 @@
       border: 1px solid rgba(16, 185, 129, 0.3);
       padding: 0.15rem 0.55rem;
       border-radius: 9999px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
     }
 
@@ -475,16 +455,13 @@
       -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
     }
 
-    /* Slower Slide Speed: 110s */
     .marquee-track {
       display: flex;
-      gap: 1rem;
+      gap: 0.85rem;
       width: max-content;
       animation: infiniteScroll 110s linear infinite;
     }
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
+    .marquee-track:hover { animation-play-state: paused; }
 
     @keyframes infiniteScroll {
       0% { transform: translateX(0); }
@@ -494,57 +471,228 @@
     .grad-avatar-card {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.5rem;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 9999px;
-      padding: 0.35rem 0.95rem 0.35rem 0.4rem;
+      padding: 0.3rem 0.85rem 0.3rem 0.35rem;
       flex-shrink: 0;
-      transition: all 0.2s ease;
     }
-    .grad-avatar-card:hover {
-      background: rgba(99, 102, 241, 0.2);
-      border-color: #6366f1;
-      transform: translateY(-2px);
-    }
-
     .grad-photo {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       object-fit: cover;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 800;
       color: #fff;
       border: 2px solid #10b981;
     }
-
     .grad-meta {
       display: flex;
       flex-direction: column;
       text-align: left;
     }
     .grad-name {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: #f1f5f9;
       line-height: 1.2;
     }
     .grad-badge {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: #38bdf8;
       font-weight: 600;
     }
 
-    /* App Workspace */
+    .course-info-section {
+      width: 100%;
+      max-width: 1040px;
+      margin: 1rem auto 2.5rem auto;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .section-headline {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .section-headline h2 {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+    .section-headline p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .curriculum-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.5rem 1.25rem;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .curriculum-card:hover {
+      border-color: rgba(99, 102, 241, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    .curriculum-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .curriculum-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .sessions-syllabus-container {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 1.5rem 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .sessions-syllabus-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .sessions-syllabus-header h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .sessions-accordion {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .session-item {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 0.85rem;
+      padding: 0.85rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      transition: border-color 0.2s ease;
+    }
+    .session-item:hover {
+      border-color: rgba(99, 102, 241, 0.35);
+    }
+
+    .session-item-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .session-badge-sm {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.2rem 0.55rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .badge-session-a1 {
+      background: rgba(6, 182, 212, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+    .badge-session-a2 {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .session-words-count {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .session-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #f1f5f9;
+    }
+
+    .session-desc {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    .roadmap-cta-bar {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .roadmap-cta-bar p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .btn-donate-secondary {
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+      padding: 0.55rem 1.15rem;
+      border-radius: 0.65rem;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .btn-donate-secondary:hover {
+      background: rgba(245, 158, 11, 0.25);
+      color: #fff;
+    }
+
     .app-workspace {
       max-width: 880px;
       margin: 0 auto;
       width: 100%;
-      padding: 0 1.25rem 3rem 1.25rem;
+      padding: 0 1rem 3rem 1rem;
       position: relative;
       z-index: 10;
     }
@@ -553,21 +701,21 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 1.25rem;
-      padding: 1.25rem 1.75rem;
-      margin-bottom: 2rem;
+      padding: 1.15rem;
+      margin-bottom: 1.5rem;
       backdrop-filter: blur(12px);
     }
     .tracker-stats {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.75rem;
-      font-size: 0.95rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.88rem;
       font-weight: 600;
     }
     .progress-bar-bg {
       width: 100%;
-      height: 10px;
+      height: 9px;
       background: rgba(255, 255, 255, 0.08);
       border-radius: 9999px;
       overflow: hidden;
@@ -584,7 +732,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .mascot-container {
@@ -592,32 +740,23 @@
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      transition: transform 0.25s ease;
     }
-    .mascot-container:hover {
-      transform: scale(1.05);
-    }
-
     .mascot-svg {
-      width: 120px;
-      height: 110px;
+      width: 100px;
+      height: 90px;
       filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
     }
-
     .cat-mouth {
       transform-origin: 50px 65px;
       transition: all 0.1s ease;
     }
-
     .speaking .cat-mouth {
       animation: mouthTalk 0.25s infinite alternate ease-in-out;
     }
-
     @keyframes mouthTalk {
       0% { transform: scaleY(0.4); }
       100% { transform: scaleY(1.9) translateY(1.5px); }
     }
-
     .speaking .cat-ears {
       animation: earTwitch 0.5s infinite alternate ease-in-out;
     }
@@ -630,22 +769,23 @@
       background: rgba(99, 102, 241, 0.2);
       border: 1px solid rgba(99, 102, 241, 0.4);
       color: #e0e7ff;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
       padding: 0.25rem 0.75rem;
       border-radius: 9999px;
-      margin-top: 0.4rem;
+      margin-top: 0.35rem;
       display: flex;
       align-items: center;
       gap: 0.35rem;
+      text-align: center;
     }
 
     .card {
       width: 100%;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 1.75rem;
-      padding: 2.25rem 2rem;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1.25rem;
       backdrop-filter: blur(20px);
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
       transition: all 0.28s ease;
@@ -653,15 +793,15 @@
     }
 
     .word-index-tag {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--secondary);
       background: rgba(6, 182, 212, 0.12);
       border: 1px solid rgba(6, 182, 212, 0.25);
-      padding: 0.3rem 0.8rem;
-      border-radius: 0.6rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 0.5rem;
       display: inline-flex;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
       align-items: center;
     }
 
@@ -669,20 +809,22 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
+      gap: 0.75rem;
     }
 
     .serbian-word {
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-size: clamp(1.8rem, 6vw, 3rem);
       font-weight: 800;
       color: #ffffff;
       letter-spacing: -0.02em;
+      word-break: break-word;
     }
 
     .pronunciation {
-      font-size: 1.15rem;
+      font-size: clamp(1rem, 3.5vw, 1.15rem);
       color: #93c5fd;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -693,8 +835,8 @@
       background: rgba(99, 102, 241, 0.18);
       border: 1px solid rgba(99, 102, 241, 0.4);
       color: #c7d2fe;
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -703,36 +845,31 @@
       transition: all 0.2s ease;
       flex-shrink: 0;
     }
-    .audio-btn:hover {
-      background: var(--primary);
-      color: #fff;
-      transform: scale(1.08);
-      box-shadow: 0 0 20px var(--primary-glow);
-    }
 
     .meaning-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      padding: 1.25rem;
+      gap: 1rem;
+      padding: 1rem;
       background: rgba(0, 0, 0, 0.3);
       border-radius: 1rem;
       border: 1px solid rgba(255, 255, 255, 0.05);
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.25rem;
     }
 
     .meaning-item h4 {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--text-muted);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
     }
 
     .meaning-item p {
-      font-size: 1.35rem;
+      font-size: clamp(1.1rem, 4vw, 1.35rem);
       font-weight: 700;
       color: #e2e8f0;
+      word-break: break-word;
     }
 
     .tamil-meaning-container {
@@ -740,87 +877,79 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
-    .tamil-meaning {
-      color: #38bdf8 !important;
-    }
+    .tamil-meaning { color: #38bdf8 !important; }
 
     .audio-btn-sm {
       background: rgba(56, 189, 248, 0.15);
       border: 1px solid rgba(56, 189, 248, 0.35);
       color: #38bdf8;
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: all 0.2s ease;
       flex-shrink: 0;
-    }
-    .audio-btn-sm:hover {
-      background: #0284c7;
-      color: #fff;
-      transform: scale(1.08);
     }
 
     .example-box {
       border-left: 3px solid var(--primary);
-      padding: 0.85rem 1.15rem;
+      padding: 0.75rem 0.95rem;
       background: rgba(99, 102, 241, 0.08);
-      border-radius: 0 0.85rem 0.85rem 0;
+      border-radius: 0 0.75rem 0.75rem 0;
     }
 
     .example-serbian {
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #f1f5f9;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
+      gap: 0.5rem;
     }
 
     .example-tamil-row {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: #cbd5e1;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
+      gap: 0.5rem;
     }
 
     .controls {
       display: flex;
-      gap: 1rem;
-      margin-top: 1.75rem;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
       width: 100%;
     }
 
     .btn {
       flex: 1;
-      padding: 1rem 1.5rem;
-      font-size: 1.05rem;
+      padding: 0.95rem 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      border-radius: 1rem;
+      border-radius: 0.85rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       border: none;
+      min-height: 48px;
     }
 
     .btn-prev {
       background: rgba(255, 255, 255, 0.06);
       color: var(--text-main);
       border: 1px solid var(--card-border);
-    }
-    .btn-prev:hover:not(:disabled) {
-      background: rgba(255, 255, 255, 0.12);
-      transform: translateY(-2px);
     }
     .btn-prev:disabled {
       opacity: 0.35;
@@ -832,48 +961,45 @@
       color: #ffffff;
       box-shadow: 0 10px 25px -5px var(--primary-glow);
     }
-    .btn-next:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px -5px var(--primary-glow);
-    }
 
     .jump-bar {
-      margin-top: 2rem;
+      margin-top: 1.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      font-size: 0.85rem;
+      gap: 0.5rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
       flex-wrap: wrap;
     }
     .jump-bar input {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
-      padding: 0.4rem 0.75rem;
+      padding: 0.4rem 0.65rem;
       color: #fff;
       border-radius: 0.5rem;
-      width: 80px;
+      width: 70px;
       text-align: center;
       font-weight: 600;
       outline: none;
+      min-height: 38px;
     }
     .jump-bar button {
       background: rgba(255, 255, 255, 0.1);
       color: #fff;
       border: none;
-      padding: 0.45rem 0.9rem;
+      padding: 0.45rem 0.8rem;
       border-radius: 0.5rem;
       cursor: pointer;
       font-weight: 600;
+      min-height: 38px;
     }
 
-    /* Support Section */
     .donate-section {
       background: linear-gradient(180deg, rgba(17, 24, 39, 0.6) 0%, rgba(15, 23, 42, 0.95) 100%);
       border-top: 1px solid var(--card-border);
       border-bottom: 1px solid var(--card-border);
-      padding: 3.5rem 1.5rem;
+      padding: 2.75rem 1rem;
       position: relative;
       z-index: 10;
     }
@@ -891,30 +1017,31 @@
       background: rgba(245, 158, 11, 0.15);
       border: 1px solid rgba(245, 158, 11, 0.35);
       color: #fbbf24;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      padding: 0.3rem 0.9rem;
+      padding: 0.25rem 0.8rem;
       border-radius: 9999px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
 
     .donate-title {
-      font-size: 2rem;
+      font-size: clamp(1.4rem, 4vw, 2rem);
       font-weight: 800;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
     }
 
     .donate-desc {
       color: var(--text-muted);
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
       line-height: 1.6;
+      font-size: 0.9rem;
     }
 
     .donate-box {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 1.5rem;
-      padding: 2rem;
+      padding: 1.5rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -924,132 +1051,114 @@
     .upi-display {
       background: rgba(0, 0, 0, 0.35);
       border: 1px dashed rgba(99, 102, 241, 0.5);
-      padding: 0.85rem 1.5rem;
-      border-radius: 0.85rem;
+      padding: 0.75rem 1.15rem;
+      border-radius: 0.75rem;
       font-family: monospace;
-      font-size: 1.15rem;
+      font-size: clamp(0.85rem, 3.2vw, 1.15rem);
       color: #38bdf8;
       display: flex;
       align-items: center;
-      gap: 0.85rem;
-      margin-bottom: 1.5rem;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
       user-select: all;
+      word-break: break-all;
     }
 
     .copy-btn {
       background: var(--primary);
       border: none;
       color: #fff;
-      padding: 0.35rem 0.75rem;
-      border-radius: 0.5rem;
-      font-size: 0.8rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 0.45rem;
+      font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
+      min-height: 32px;
     }
 
     .qr-frame {
       background: #ffffff;
-      padding: 1rem;
-      border-radius: 1rem;
+      padding: 0.85rem;
+      border-radius: 0.85rem;
       margin-bottom: 1.25rem;
       box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
     .qr-frame img {
-      width: 175px;
-      height: 175px;
+      width: 155px;
+      height: 155px;
       display: block;
     }
 
     .amount-pills {
       display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .pill {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
       color: #fff;
-      padding: 0.45rem 1rem;
+      padding: 0.45rem 0.85rem;
       border-radius: 9999px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
+      font-size: 0.85rem;
+      min-height: 38px;
     }
     .pill.active {
       background: var(--primary);
       border-color: var(--primary);
     }
 
-    /* Repeated Pulsing Pay Button */
     .btn-pay-now {
       background: linear-gradient(135deg, #10b981, #059669);
       color: #fff;
-      padding: 0.9rem 2.2rem;
-      font-size: 1.05rem;
+      padding: 0.85rem 1.6rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      border-radius: 0.85rem;
+      border-radius: 0.75rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      transition: all 0.25s ease;
-      position: relative;
-      animation: pulsePay 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
-    }
-
-    @keyframes pulsePay {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
-      }
-      50% {
-        transform: scale(1.025);
-        box-shadow: 0 0 20px 4px rgba(16, 185, 129, 0.45);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-      }
-    }
-
-    .btn-pay-now:hover {
-      transform: translateY(-2px) scale(1.04);
-      animation: none;
-      box-shadow: 0 12px 30px rgba(16, 185, 129, 0.55);
+      gap: 0.5rem;
+      min-height: 48px;
+      text-align: center;
     }
 
     .ai-disclaimer-card {
       background: rgba(245, 158, 11, 0.08);
       border: 1px solid rgba(245, 158, 11, 0.25);
       border-radius: 1rem;
-      padding: 1.25rem 1.75rem;
-      margin: 3rem auto 1rem auto;
+      padding: 1.15rem;
+      margin: 2rem auto 1rem auto;
       max-width: 880px;
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
+      gap: 0.75rem;
       color: #fde68a;
-      font-size: 0.92rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.55;
     }
 
     footer {
       background: #060911;
       border-top: 1px solid var(--card-border);
-      padding: 2.5rem 1.5rem;
+      padding: 2.25rem 1rem;
       text-align: center;
       position: relative;
       z-index: 10;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1.25rem;
+      gap: 1.25rem;
+      margin-bottom: 1rem;
       flex-wrap: wrap;
     }
 
@@ -1058,14 +1167,11 @@
       border: none;
       color: #94a3b8;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-decoration: underline;
-      transition: color 0.2s ease;
     }
-    .footer-link-btn:hover {
-      color: #fff;
-    }
- .footer-version-badge {
+
+    .footer-version-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
@@ -1073,9 +1179,9 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 0.25rem 0.65rem;
       border-radius: 9999px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: #94a3b8;
-      margin-top: 0.85rem;
+      margin-top: 0.75rem;
     }
     .footer-version-badge span.indicator {
       width: 6px;
@@ -1083,6 +1189,7 @@
       border-radius: 50%;
       background: #10b981;
     }
+
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -1091,17 +1198,17 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 1.25rem;
+      padding: 1rem;
       z-index: 100;
     }
 
     .modal-card {
       background: #111827;
       border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 1.75rem;
+      border-radius: 1.5rem;
       max-width: 580px;
       width: 100%;
-      padding: 2.25rem 2rem;
+      padding: 2rem 1.25rem;
       position: relative;
       box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8);
       animation: zoomIn 0.3s ease;
@@ -1116,8 +1223,8 @@
 
     .close-modal-btn {
       position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
+      top: 1rem;
+      right: 1rem;
       background: transparent;
       border: none;
       color: var(--text-muted);
@@ -1132,17 +1239,18 @@
       background: rgba(99, 102, 241, 0.2);
       border: 1px solid rgba(99, 102, 241, 0.4);
       color: #c7d2fe;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
 
     @media (max-width: 640px) {
       .meaning-grid { grid-template-columns: 1fr; }
+      .sessions-accordion { grid-template-columns: 1fr; }
       .founder-card { flex-direction: column; text-align: center; }
-      .upi-display { font-size: 0.95rem; }
-      .toast-container { left: 1rem; right: 1rem; bottom: 1rem; }
-      .activity-toast { max-width: 100%; }
+      .nav-actions { width: 100%; justify-content: space-between; }
+      .controls { flex-direction: row; }
+      .btn { font-size: 0.85rem; padding: 0.85rem 0.65rem; }
     }
   </style>
 </head>
@@ -1151,46 +1259,45 @@
   <div class="mesh-glow glow-1"></div>
   <div class="mesh-glow glow-2"></div>
 
-  <!-- Sound Wave Overlay: 50% Opacity Background Rings -->
   <div class="sound-wave-overlay" id="soundWaveOverlay">
     <div class="wave-ring ring-1"></div>
     <div class="wave-ring ring-2"></div>
     <div class="wave-ring ring-3"></div>
   </div>
 
-  <!-- Header -->
   <header>
     <div class="brand-wrap">
       <div class="brand">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
         </svg>
         LearnGrid.IN
       </div>
-
-      <!-- Live Counter Below 100 (1 to 100) -->
-      <div class="live-learners-pill" title="Students actively learning Serbian right now">
+      <div class="live-learners-pill">
         <span class="pulse-dot"></span>
         <span id="liveLearnersCount">64</span> Learners Online
       </div>
     </div>
 
     <div class="nav-actions">
-      <button class="nav-btn active" id="autoPlayToggleBtn" title="Toggle Auto Pronunciation">
-        🔊 <span id="autoPlayLabel">Auto-Audio: ON (2x Loop)</span>
+      <a href="#donateProject" class="nav-btn donate-header-btn" title="Support open education">
+        ❤️ <span>Donate</span>
+      </a>
+
+      <button class="nav-btn active" id="autoPlayToggleBtn">
+        🔊 <span id="autoPlayLabel">Auto: ON (2x Loop)</span>
       </button>
 
-      <button class="nav-btn" id="langToggleBtn" title="Switch language">
+      <button class="nav-btn" id="langToggleBtn">
         🌐 <span id="currentLangLabel">தமிழ் / English</span>
       </button>
 
-      <button class="nav-btn reset-btn" id="resetProgressBtn" title="Reset Course Progress">
+      <button class="nav-btn reset-btn" id="resetProgressBtn">
         ↺ <span>Reset</span>
       </button>
     </div>
   </header>
 
-  <!-- Live Delayed & Mixed Notification (Milestones + 5 Donors) -->
   <div class="toast-container">
     <div class="activity-toast" id="liveActivityToast">
       <div class="toast-avatar" id="toastAvatar">P</div>
@@ -1202,7 +1309,6 @@
     </div>
   </div>
 
-  <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-badge" id="heroBadgeText">
       ⚡ Smart Audio Slide Immersion • 1 to 1000 Words
@@ -1211,30 +1317,28 @@
       Master Serbian through Tamil & English Easily
     </h1>
     <p class="hero-subtitle" id="heroSubText">
-      Learn with double reinforcement (Serbian & Tamil spoken twice sequentially: <em>Hvala, நன்றி ➔ Hvala, நன்றி</em>) with responsive 50% sound wave visuals, milestone celebrations, and verified certification.
+      Learn with double reinforcement (Serbian & Tamil spoken twice sequentially: <em>Hvala, நன்றி ➔ Hvala, நன்றி</em>) with responsive sound waves, milestone celebrations, and verified certification.
     </p>
 
-    <!-- Founder Card with Email ID -->
     <div class="founder-card">
       <div class="founder-avatar">P</div>
       <div class="founder-info">
         <h3>
           PraveenKumar R
-          <span style="font-size:0.8rem; background:rgba(99,102,241,0.2); padding:0.15rem 0.5rem; border-radius:999px; color:#a5b4fc;">Founder & AI Architect</span>
+          <span style="font-size:0.75rem; background:rgba(99,102,241,0.2); padding:0.15rem 0.5rem; border-radius:999px; color:#a5b4fc;">Founder & AI Architect</span>
         </h3>
         <div class="founder-role" id="founderRoleText">Project Creator & Language Technologist</div>
         <p class="founder-bio" id="founderBioText">
           Dedicated to eliminating linguistic barriers between the Balkans and Tamil speakers worldwide through AI speech models, accessible pedagogy, and free interactive tools.
         </p>
         <div>
-          <a href="mailto:founder@learngrid.in" class="founder-email-badge" title="Send email to founder">
+          <a href="mailto:founder@learngrid.in" class="founder-email-badge">
             ✉️ <span>founder@learngrid.in</span>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Scaled Entire Width & Slower Responsive Graduates Showcase -->
     <div class="graduates-showcase-box">
       <div class="graduates-head">
         <div class="graduates-title">
@@ -1242,18 +1346,67 @@
         </div>
         <span class="graduates-count-tag">50+ Certified</span>
       </div>
-
       <div class="marquee-container">
-        <div class="marquee-track" id="graduatesMarquee">
-          <!-- Populated by JS -->
-        </div>
+        <div class="marquee-track" id="graduatesMarquee"></div>
       </div>
     </div>
   </section>
 
-  <!-- Main Workspace -->
+  <section class="course-info-section">
+    <div class="section-headline">
+      <h2 id="curriculumHeadline">What You Will Learn in this Course</h2>
+      <p id="curriculumSubheadline">From absolute zero to confident everyday conversation across 20 modular sessions.</p>
+    </div>
+
+    <div class="curriculum-grid">
+      <div class="curriculum-card">
+        <span class="card-icon">🗣️</span>
+        <h3 id="feat1Title">Authentic Pronunciation</h3>
+        <p id="feat1Desc">Accurate syllable-by-syllable Serbian transliteration paired with clear Tamil sounds, repeated twice for memory retention.</p>
+      </div>
+
+      <div class="curriculum-card">
+        <span class="card-icon">🔄</span>
+        <h3 id="feat2Title">Bilingual Sentence Mastery</h3>
+        <p id="feat2Desc">Every word is placed into a practical sentence translated simultaneously into Serbian, English, and conversational Tamil.</p>
+      </div>
+
+      <div class="curriculum-card">
+        <span class="card-icon">⚡</span>
+        <h3 id="feat3Title">20 Structured 50-Word Sessions</h3>
+        <p id="feat3Desc">Complete 50 words to unlock the next session. Celebrate every milestone with sound fanfare, confetti, and auto-tracked progress.</p>
+      </div>
+
+      <div class="curriculum-card">
+        <span class="card-icon">📜</span>
+        <h3 id="feat4Title">Verified A1 Certificate</h3>
+        <p id="feat4Desc">Master all 1,000 words across 20 sessions to generate and download an official personalized completion certificate.</p>
+      </div>
+    </div>
+
+    <div class="sessions-syllabus-container">
+      <div class="sessions-syllabus-header">
+        <div>
+          <h3 id="syllabusHeader">Complete 20-Session Course Syllabus (A1 to A2)</h3>
+          <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;" id="syllabusSub">50 curated vocabulary items per session with pronunciation and contextual dialogues.</p>
+        </div>
+        <span class="session-badge" style="margin-bottom:0;">20 Sessions • 1,000 Words</span>
+      </div>
+
+      <div class="sessions-accordion" id="sessionsAccordionContainer">
+        <!-- Rendered dynamically by JavaScript in English and Tamil -->
+      </div>
+
+      <div class="roadmap-cta-bar">
+        <p id="roadmapCtaNote">100% Free educational initiative for Tamil and English speakers.</p>
+        <a href="#donateProject" class="btn-donate-secondary" id="roadmapDonateBtn">
+          ❤️ Donate to Keep Course Free
+        </a>
+      </div>
+    </div>
+  </section>
+
   <main class="app-workspace">
-    <!-- Tracker Card -->
     <div class="tracker-card">
       <div class="tracker-stats">
         <span><span id="progressLabel">Progress:</span> <b id="progressText" style="color:#6366f1;">Word 1 of 1000</b></span>
@@ -1264,7 +1417,6 @@
       </div>
     </div>
 
-    <!-- Slide Zone with Animated Cat -->
     <div class="slide-zone">
       <div class="mascot-container" id="catMascot" title="Click me to speak 2x!">
         <svg class="mascot-svg" viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1291,7 +1443,6 @@
         </div>
       </div>
 
-      <!-- Word Card -->
       <div class="card" id="wordCard">
         <div class="word-index-tag" id="wordTag">
           #001 • Session 01 of 20
@@ -1309,7 +1460,7 @@
             <div class="pronunciation" id="pronunciation">🗣 Zdra-vo</div>
           </div>
           <button class="audio-btn" id="listenBtn" title="Play 2 Times (Serbian + Tamil)">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
             </svg>
@@ -1326,7 +1477,7 @@
             <div class="tamil-meaning-container">
               <p class="tamil-meaning" id="tamilMeaning">வணக்கம்</p>
               <button class="audio-btn-sm" id="listenTamilBtn" title="Listen Tamil Only (2x)">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                   <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                 </svg>
@@ -1348,10 +1499,9 @@
       </div>
     </div>
 
-    <!-- Controls -->
     <div class="controls">
       <button class="btn btn-prev" id="prevBtn" disabled>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
@@ -1360,14 +1510,13 @@
 
       <button class="btn btn-next" id="nextBtn">
         <span id="nextBtnText">Next Word</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </button>
     </div>
 
-    <!-- Jump Bar -->
     <div class="jump-bar">
       <span id="jumpLabel">Jump to word (1-1000):</span>
       <input type="number" id="jumpInput" min="1" max="1000" value="1">
@@ -1377,8 +1526,7 @@
     </div>
   </main>
 
-  <!-- Support Section -->
-  <section class="donate-section">
+  <section class="donate-section" id="donateProject">
     <div class="donate-container">
       <div class="donate-badge">🎁 Support & Gift</div>
       <h2 class="donate-title" id="donateTitle">Support the Creator / Donate to Project</h2>
@@ -1403,7 +1551,6 @@
           <button class="copy-btn" id="copyUpiBtn">Copy UPI</button>
         </div>
 
-        <!-- Repeated Pulsing Pay Button -->
         <a id="payDirectLink" href="#" class="btn-pay-now">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2"></rect>
@@ -1415,9 +1562,8 @@
     </div>
   </section>
 
-  <!-- AI Disclaimer -->
   <div class="ai-disclaimer-card">
-    <div style="font-size:1.5rem;">⚠️</div>
+    <div style="font-size:1.3rem;">⚠️</div>
     <div>
       <strong id="disclaimerTitle">AI-Generated Educational Material Notice:</strong>
       <p id="disclaimerBody">
@@ -1426,7 +1572,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-links">
       <button class="footer-link-btn" id="openTermsBtn">Terms of Service</button>
@@ -1437,77 +1582,72 @@
     <div>
       <div class="footer-version-badge">
         <span class="indicator"></span>
-        <span>Version 2.4.2-Production (Build: 2026.10-Stable)</span>
+        <span>Version 2.7.0-BilingualPro (Build: 2026.10-Stable)</span>
       </div>
     </div>
   </footer>
 
-  <!-- Milestone Modal with Confetti & Cheers -->
   <div class="modal-overlay" id="milestoneModal">
     <div class="modal-card" style="text-align: center;">
       <button class="close-modal-btn" onclick="closeAllModals()">✕</button>
       <div style="font-size: 3.5rem; margin-bottom: 0.5rem;" id="milestoneIcon">🎉</div>
       <div class="session-badge" id="milestoneBadge">Session 01 Complete</div>
-      <h2 style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.75rem; color:#fff;" id="milestoneTitle">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; color:#fff;" id="milestoneTitle">
         Congratulations!
       </h2>
-      <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-bottom: 1.75rem;" id="milestoneMsg">
-        You completed 50 words! Ready for the next set of words?
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;" id="milestoneMsg">
+        You completed 50 words! Ready for Session 02?
       </p>
-      <button id="milestoneActionBtn" style="width: 100%; background: linear-gradient(135deg, #4f46e5, #06b6d4); color: #fff; padding: 1rem; font-weight: 700; font-size: 1.05rem; border-radius: 0.85rem; border: none; cursor: pointer; box-shadow: 0 10px 25px -5px var(--primary-glow);">
-        Ready for Next Words ➔
+      <button id="milestoneActionBtn" style="width: 100%; background: linear-gradient(135deg, #4f46e5, #06b6d4); color: #fff; padding: 0.9rem; font-weight: 700; font-size: 1rem; border-radius: 0.85rem; border: none; cursor: pointer;">
+        Ready for Next Session ➔
       </button>
     </div>
   </div>
 
-  <!-- Certificate Modal -->
   <div class="modal-overlay" id="certModal">
     <div class="modal-card">
       <button class="close-modal-btn" onclick="closeAllModals()">✕</button>
       <div style="font-size:3.5rem; text-align:center; margin-bottom:0.5rem;">🏆</div>
-      <h2 style="font-size:1.85rem; font-weight:800; text-align:center; margin-bottom:0.5rem;" id="modalCertHeading">
+      <h2 style="font-size:1.6rem; font-weight:800; text-align:center; margin-bottom:0.5rem;" id="modalCertHeading">
         Congratulations! You Completed the Course!
       </h2>
-      <p style="color:var(--text-muted); font-size:0.95rem; text-align:center; margin-bottom:1.5rem;" id="modalCertSub">
+      <p style="color:var(--text-muted); font-size:0.9rem; text-align:center; margin-bottom:1.25rem;" id="modalCertSub">
         You have successfully explored all 1,000 core Serbian vocabulary items across all 20 sessions! Enter your name below to download your verified A1 completion certificate!
       </p>
 
-      <div style="margin-bottom:1.5rem;">
-        <label style="display:block; font-size:0.85rem; font-weight:600; color:#cbd5e1; margin-bottom:0.5rem;">
+      <div style="margin-bottom:1.25rem;">
+        <label style="display:block; font-size:0.85rem; font-weight:600; color:#cbd5e1; margin-bottom:0.4rem;">
           Your Name for Certificate:
         </label>
-        <input type="text" id="learnerName" value="Praveen Kumar" style="width:100%; padding:0.85rem 1.15rem; border-radius:0.75rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#fff; font-size:1rem; outline:none;">
+        <input type="text" id="learnerName" value="Praveen Kumar" style="width:100%; padding:0.8rem 1rem; border-radius:0.75rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.15); color:#fff; font-size:0.95rem; outline:none;">
       </div>
 
-      <button id="downloadCertBtn" style="width:100%; background:linear-gradient(135deg, #10b981, #059669); color:#fff; padding:1rem; font-weight:700; font-size:1.05rem; border-radius:0.85rem; border:none; cursor:pointer;">
+      <button id="downloadCertBtn" style="width:100%; background:linear-gradient(135deg, #10b981, #059669); color:#fff; padding:0.9rem; font-weight:700; font-size:1rem; border-radius:0.85rem; border:none; cursor:pointer;">
         Download Verified A1 Certificate (.PNG)
       </button>
     </div>
   </div>
 
-  <!-- Terms Modal -->
   <div class="modal-overlay" id="termsModal">
     <div class="modal-card">
       <button class="close-modal-btn" onclick="closeAllModals()">✕</button>
-      <h2 style="margin-bottom:1rem; font-size:1.5rem; color:#fff;">Terms of Service</h2>
-      <div style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; display:flex; flex-direction:column; gap:0.75rem;">
+      <h2 style="margin-bottom:1rem; font-size:1.4rem; color:#fff;">Terms of Service</h2>
+      <div style="color:var(--text-muted); font-size:0.85rem; line-height:1.6; display:flex; flex-direction:column; gap:0.75rem;">
         <p>1. <strong>Nature of Service:</strong> SrpskiTamil is an open-source educational platform designed to assist language learners with Serbian phonetics translated into Tamil and English.</p>
         <p>2. <strong>AI-Assisted Accuracy Disclaimer:</strong> While content is curated with ~99% computational and phonetic precision, users acknowledge that language rules and local slang may vary. Content is offered "as is" at your own risk.</p>
         <p>3. <strong>Free & Voluntary Contributions:</strong> The core 1,000 words curriculum is 100% free. Voluntary gifts or donations via UPI are non-refundable and support hosting costs.</p>
-        <!-- Added clause -->
         <p style="background: rgba(99,102,241,0.1); border-left: 3px solid var(--primary); padding: 0.65rem 0.85rem; color:#e0e7ff;">
-          4. <strong>Interface & Community Notice:</strong> Live learner counts and donation stream highlights displayed across the interface are illustrative design representations intended for inspiration and motivational ambiance; they are not real-time telemetry. If you are learning here right now, you are the genuine learner making real progress!
+          4. <strong>Interface & Community Notice:</strong> Live learner counts displayed across the interface are illustrative design representations intended for inspiration and motivational ambiance; they are not real-time telemetry.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- Privacy Modal -->
   <div class="modal-overlay" id="privacyModal">
     <div class="modal-card">
       <button class="close-modal-btn" onclick="closeAllModals()">✕</button>
-      <h2 style="margin-bottom:1rem; font-size:1.5rem; color:#fff;">Privacy Policy</h2>
-      <div style="color:var(--text-muted); font-size:0.9rem; line-height:1.6; display:flex; flex-direction:column; gap:0.75rem;">
+      <h2 style="margin-bottom:1rem; font-size:1.4rem; color:#fff;">Privacy Policy</h2>
+      <div style="color:var(--text-muted); font-size:0.85rem; line-height:1.6; display:flex; flex-direction:column; gap:0.75rem;">
         <p>1. <strong>No Personal Data Tracking:</strong> We do not store your private credentials, contact lists, or payment details. Name entries for the A1 certificate are processed locally inside your web browser Canvas.</p>
         <p>2. <strong>Payment Security:</strong> UPI transfers occur directly through certified banking applications (such as GPay, PhonePe, or Paytm). No financial intermediary logs your bank info.</p>
       </div>
@@ -1517,7 +1657,6 @@
   <canvas id="certCanvas" width="1200" height="850" style="display:none;"></canvas>
 
   <script>
-    // Cookie & LocalStorage Synchronization
     const CookieManager = {
       set(name, value, days = 365) {
         const d = new Date();
@@ -1543,8 +1682,7 @@
       }
     };
 
-    // Authentic Dataset
-   const vocabulary = [
+    const vocabulary = [
       { "id": 1, "serbian": "ZDRAVO", "pron": "Zdra-vo", "en": "Hello / Hi", "ta": "வணக்கம்", "ex_sr": "Zdravo! Kako ste?", "ex_ta": "வணக்கம்! எப்படி இருக்கிறீர்கள்?" },
       { "id": 2, "serbian": "ĆAO", "pron": "Chao", "en": "Hi / Bye", "ta": "ஹாய்/பை", "ex_sr": "Ćao, vidimo se!", "ex_ta": "ஹாய், அப்புறம் பார்க்கலாம்!" },
       { "id": 3, "serbian": "DOBRO", "pron": "Do-bro", "en": "Good/ Well", "ta": "நல்லது", "ex_sr": "Sve je dobro.", "ex_ta": "எல்லாம் நன்றாக உள்ளது." },
@@ -2568,11 +2706,154 @@
       }
     }
 
+    const sessionSyllabusData = [
+      {
+        num: "01", words: "001–050", level: "A1",
+        title_en: "Greetings, Essentials & Basics",
+        desc_en: "Zdravo, Ćao, Hvala, pronouns (Ja, Ti, On), core question words (Šta, Gde, Ko) and polite greetings.",
+        title_ta: "முகமன், அடிப்படை உரையாடல் & சொற்கள்",
+        desc_ta: "வணக்கம் (Zdravo), நன்றி (Hvala), பிரதிப்பெயர்கள் (நான், நீ, அவர்), முக்கிய வினாக்கள் மற்றும் அறிமுக சொற்கள்."
+      },
+      {
+        num: "02", words: "051–100", level: "A1",
+        title_en: "Numbers 1–10, Family & City",
+        desc_en: "Jedan through Deset, family members (Otac, Majka, Brat), verbs (Biti, Imati) and city locations.",
+        title_ta: "எண்கள் 1–10, குடும்பம் & நகரம்",
+        desc_ta: "ஒன்று முதல் பத்து வரை (Jedan–Deset), குடும்ப உறுப்பினர்கள் (அப்பா, அம்மா, சகோதரன்) மற்றும் நகர இடங்கள்."
+      },
+      {
+        num: "03", words: "101–150", level: "A1",
+        title_en: "Food, Drinks & Restaurant",
+        desc_en: "Hleb, Meso, Kafa, Čaj, dining verbs, table items (Tanjir, Viljuška, Račun) and basic tastes.",
+        title_ta: "உணவு, பானங்கள் & உணவகம்",
+        desc_ta: "ரொட்டி, காபி, தேநீர், மேஜைப் பொருட்கள் (தட்டு, கரண்டி, பில்), உணவக உரையாடல் மற்றும் சுவைகள்."
+      },
+      {
+        num: "04", words: "151–200", level: "A1",
+        title_en: "Days of Week, Time & Seasons",
+        desc_en: "Ponedeljak through Nedelja, time units (Sat, Minut), seasons (Leto, Zima) and temporal adverbs.",
+        title_ta: "வாரத்தின் நாட்கள், நேரம் & பருவங்கள்",
+        desc_ta: "திங்கள் முதல் ஞாயிறு வரை (Ponedeljak–Nedelja), மணித்துளிகள், காலங்கள் (கோடை, குளிர்) மற்றும் நேரம் சார்ந்த சொற்கள்."
+      },
+      {
+        num: "05", words: "201–250", level: "A1",
+        title_en: "Transport, Travel & Directions",
+        desc_en: "Automobil, Voz, Avion, directions (Levo, Desno, Pravo), station terms, and travel luggage.",
+        title_ta: "போக்குவரத்து, பயணம் & வழிகள்",
+        desc_ta: "கார், ரயில், விமானம், திசைகள் (இடது, வலது, நேராக), பயணச்சீட்டு, நிலையம் மற்றும் பயணப் பொருட்கள்."
+      },
+      {
+        num: "06", words: "251–300", level: "A1",
+        title_en: "Shopping, Clothes & Colors",
+        desc_en: "Cena, Popust, clothes (Majica, Pantalone), colors (Bela, Crna, Crvena), and clothing sizes.",
+        title_ta: "ஷாப்பிங், உடைகள் & நிறங்கள்",
+        desc_ta: "விலை, தள்ளுபடி, ஆடைகள் (சட்டை, ஜீன்ஸ், கோட்), நிறங்கள் (வெள்ளை, கருப்பு, சிவப்பு) மற்றும் ஆடை அளவுகள்."
+      },
+      {
+        num: "07", words: "301–350", level: "A1",
+        title_en: "House, Rooms & Home Appliances",
+        desc_en: "Stan, Soba, Kuhinja, furniture, electronics (Frižider, Veš mašina) and daily cleaning verbs.",
+        title_ta: "வீடு, அறைகள் & வீட்டு உபகரணங்கள்",
+        desc_ta: "வீடு, வரவேற்பறை, சமையலறை, வீட்டு உபகரணங்கள் (பிரிட்ஜ், வாஷிங் மெஷின்) மற்றும் சுத்தம் செய்தல்."
+      },
+      {
+        num: "08", words: "351–400", level: "A1",
+        title_en: "Numbers 11–100, Money & Banking",
+        desc_en: "Jedanaest to Sto, currency terms (Dinar, Evro), banking, ATM cards, and financial transactions.",
+        title_ta: "எண்கள் 11–100, பணம் & வங்கி",
+        desc_ta: "பதினொன்று முதல் நூறு வரை, நாணயங்கள் (தினார், யூரோ), ஏடிஎம், வங்கி கணக்கு மற்றும் பணப்பரிவர்த்தனை."
+      },
+      {
+        num: "09", words: "401–450", level: "A1",
+        title_en: "Body Parts, Health & Pharmacy",
+        desc_en: "Telo, Glava, Ruka, symptoms (Temperatura, Bol), doctor checkups, medicines and prescriptions.",
+        title_ta: "உடல் உறுப்புகள், நலம் & மருந்தகம்",
+        desc_ta: "உடல், தலை, கை, கால், நோய்க்குறிகள் (காய்ச்சல், வலி), மருத்துவர் பரிசோதனை மற்றும் மருந்துகள்."
+      },
+      {
+        num: "10", words: "451–500", level: "A1",
+        title_en: "Jobs, Professions & Workplace",
+        desc_en: "Inženjer, Kuvar, Radnik, office terms, contract signing, meetings, salaries, and career goals.",
+        title_ta: "தொழில், வேலை & அலுவலகம்",
+        desc_ta: "பொறியாளர், சமையலர், பணியாளர், அலுவலகச் சூழல், பணி ஒப்பந்தம், கூட்டம் மற்றும் சம்பளம்."
+      },
+      {
+        num: "11", words: "501–550", level: "A2",
+        title_en: "Weather, Nature & Geography",
+        desc_en: "Sunce, Kiša, Sneg, geography terms (Planina, Reka, More), animals, and climate conditions.",
+        title_ta: "வானிலை, இயற்கை & புவியியல்",
+        desc_ta: "சூரியன், மழை, பனி, நிலப்பரப்பு (மலை, ஆறு, கடல்), விலங்குகள் மற்றும் தட்பவெப்ப நிலை."
+      },
+      {
+        num: "12", words: "551–600", level: "A2",
+        title_en: "Core Modal & Action Verbs",
+        desc_en: "Hteti, Moći, Morati, Trebati, communication actions, perception verbs (Videti, Čuti) and daily habits.",
+        title_ta: "முக்கிய வினைகள் & செயல் சொற்கள்",
+        desc_ta: "விரும்புதல், முடிதல், வேண்டும், பார்த்தல், கேட்டல், பேசுதல் மற்றும் தினசரி பயன்பாட்டு வினைகள்."
+      },
+      {
+        num: "13", words: "601–650", level: "A2",
+        title_en: "Feelings, Personality & Adjectives",
+        desc_en: "Srećan, Tužan, descriptions (Brz, Spor, Visok, Nizak), character traits (Hrabar, Iskren), and qualities.",
+        title_ta: "உணர்வுகள், குணங்கள் & விவரிப்புகள்",
+        desc_ta: "மகிழ்ச்சி, சோகம், பண்புகள் (தைரியம், நேர்மை) மற்றும் குணவிசேஷ விவரிப்புச் சொற்கள்."
+      },
+      {
+        num: "14", words: "651–700", level: "A2",
+        title_en: "Conjunctions & Spatial Prepositions",
+        desc_en: "Connectors (I, Ali, Jer, Ako), positions (U, Na, Pod, Pred, Iza, Između), and adverbial markers.",
+        title_ta: "இடைச்சொற்கள் & அமைவிட முன்னிடைச்சொற்கள்",
+        desc_ta: "மற்றும், ஆனால், ஏனென்றால், நிலைகள் (உள்ளே, மேலே, கீழே, பின்னால், இடையே) மற்றும் வாக்கிய இணைப்புகள்."
+      },
+      {
+        num: "15", words: "701–750", level: "A2",
+        title_en: "Technology, Internet & Mobile",
+        desc_en: "Mobilni telefon, Vaj-faj, apps, digital files, downloads, cybersecurity, and modern communication.",
+        title_ta: "தொழில்நுட்பம், இணையம் & போன்",
+        desc_ta: "செல்போன், வைஃபை, செயலிகள், டவுன்லோட், பாஸ்வேர்ட், சமூக ஊடகங்கள் மற்றும் டிஜிட்டல் சொற்கள்."
+      },
+      {
+        num: "16", words: "751–800", level: "A2",
+        title_en: "Hobbies, Sports & Leisure",
+        desc_en: "Fudbal, Košarka, Tenis, music, cinema (Bioskop, Muzej), camping, barbecue and social gatherings.",
+        title_ta: "பொழுதுபோக்கு, விளையாட்டு & ஓய்வு",
+        desc_ta: "கால்பந்து, கூடைப்பந்து, டென்னிஸ், திரைப்படம், நாடகம், அருங்காட்சியகம் மற்றும் முகாம்."
+      },
+      {
+        num: "17", words: "801–850", level: "A2",
+        title_en: "Emergencies, Safety & Rules",
+        desc_en: "Upomoć, Policija, Vatrogasci, safety alerts, road rules, reporting lost items and urgent phrases.",
+        title_ta: "அவசரகாலம், பாதுகாப்பு & எச்சரிக்கை",
+        desc_ta: "காப்பாற்றுங்கள், போலீஸ், தீயணைப்பு, விபத்து, முதலுதவி, விதிகள் மற்றும் அவசர உதவி எண்கள்."
+      },
+      {
+        num: "18", words: "851–900", level: "A2",
+        title_en: "Hotel, Reservations & Renting",
+        desc_en: "Rezervacija, Recepcija, room types, check-in/out, tenancy terms (Kirija, Depozit) and hotel amenities.",
+        title_ta: "விடுதி, முன்பதிவு & வாடகை",
+        desc_ta: "முன்பதிவு, வரவேற்பறை, அறை வகைகள், வாடகை, அட்வான்ஸ், காலி செய்தல் மற்றும் சேவைகள்."
+      },
+      {
+        num: "19", words: "901–950", level: "A2",
+        title_en: "Serbian Culture, Food & Tradition",
+        desc_en: "Slava, Ćevapi, Pljeskavica, Sarma, Belgrade landmarks, Cyrillic/Latin script and Balkan hospitality.",
+        title_ta: "செர்பிய கலாச்சாரம், உணவு & மரபு",
+        desc_ta: "ஸ்லாவா பண்டிகை, செர்பிய உணவுகள் (செவாபி, சர்மா), பெல்கிரேட் நகர சின்னங்கள் மற்றும் விருந்தோம்பல்."
+      },
+      {
+        num: "20", words: "951–1000", level: "A2",
+        title_en: "Slang, Social Fluency & Mastery",
+        desc_en: "Expressions (Bre, Važi, Nema problema), conversational slang, farewell wishes and course completion celebration.",
+        title_ta: "பேச்சுவழக்கு, சமூக உரையாடல் & நிறைவு",
+        desc_ta: "உள்ளூர் பேச்சுவழக்குகள் (Bre, Važi, Nema problema), வாழ்த்துக்கள், சமூக சரளம் மற்றும் நிறைவுச் சான்றிதழ்."
+      }
+    ];
+
     const i18n = {
       en: {
         badge: "⚡ Smart Audio Slide Immersion • 1 to 1000 Words",
         title: "Master Serbian through Tamil & English Easily",
-        sub: "Learn with double reinforcement (Serbian & Tamil spoken twice sequentially: Hvala, நன்றி ➔ Hvala, நன்றி) with responsive 50% sound wave visuals, milestone celebrations, and verified certification.",
+        sub: "Learn with double reinforcement (Serbian & Tamil spoken twice sequentially) with responsive sound waves, session milestones, and verified certification.",
         founderRole: "Project Creator & Language Technologist",
         founderBio: "Dedicated to eliminating linguistic barriers between the Balkans and Tamil speakers worldwide through AI speech models, accessible pedagogy, and free interactive tools.",
         progressLabel: "Progress:",
@@ -2588,7 +2869,21 @@
         disclaimerBody: "This language tutorial and pronunciation guide is generated using state-of-the-art Artificial Intelligence (~99% accuracy). While carefully calibrated against Serbian phonetic frameworks, minor nuances can occur. Please use at your own risk.",
         donateTitle: "Support the Creator / Donate to Project",
         donateDesc: "This platform is 100% free forever. If this project helped your Balkan language journey, you can support our hosting and AI infrastructure.",
-        payBtn: amt => `Pay ₹${amt} via UPI (GPay / PhonePe / Paytm)`
+        payBtn: amt => `Pay ₹${amt} via UPI (GPay / PhonePe / Paytm)`,
+        curriculumHeadline: "What You Will Learn in this Course",
+        curriculumSubheadline: "From absolute zero to confident everyday conversation across 20 modular sessions.",
+        feat1Title: "Authentic Pronunciation",
+        feat1Desc: "Accurate syllable-by-syllable Serbian transliteration paired with clear Tamil sounds, repeated twice for memory retention.",
+        feat2Title: "Bilingual Sentence Mastery",
+        feat2Desc: "Every word is placed into a practical sentence translated simultaneously into Serbian, English, and conversational Tamil.",
+        feat3Title: "20 Structured 50-Word Sessions",
+        feat3Desc: "Complete 50 words to unlock the next session. Celebrate every milestone with sound fanfare, confetti, and auto-tracked progress.",
+        feat4Title: "Verified A1 Certificate",
+        feat4Desc: "Master all 1,000 words across 20 sessions to generate and download an official personalized completion certificate.",
+        syllabusHeader: "Complete 20-Session Course Syllabus (A1 to A2)",
+        syllabusSub: "50 curated vocabulary items per session with pronunciation and contextual dialogues.",
+        roadmapCtaNote: "100% Free educational initiative for Tamil and English speakers.",
+        roadmapDonateBtn: "❤️ Donate to Keep Course Free"
       },
       ta: {
         badge: "⚡ ஸ்மார்ட் ஆடியோ ஸ்லைடு முறை • 1 முதல் 1000 சொற்கள்",
@@ -2609,11 +2904,24 @@
         disclaimerBody: "இந்த மொழிக் கற்றல் தளம் அதிநவீன செயற்கை நுண்ணறிவு (AI) மூலம் சுமார் 99% துல்லியத்துடன் உருவாக்கப்பட்டுள்ளது. செர்பிய உச்சரிப்பு விதிகளுக்கு ஏற்ப வடிவமைக்கப்பட்டிருப்பினும், கற்றல் உங்கள் சொந்த விருப்பத்தின் பேரிலானது.",
         donateTitle: "ஆசிரியருக்கு ஆதரவளிக்கவும் / Donate to Project",
         donateDesc: "இந்த செர்பியன்-தமிழ் தளம் முற்றிலும் இலவசமானது. இதன் சேவையை தொடர்ந்து வளர்த்தெடுக்க உங்கள் ஆதரவை அல்லது அன்பளிப்பை வழங்கலாம்.",
-        payBtn: amt => `₹${amt} UPI மூலம் செலுத்தவும் (GPay/PhonePe)`
+        payBtn: amt => `₹${amt} UPI மூலம் செலுத்தவும் (GPay/PhonePe)`,
+        curriculumHeadline: "இந்த பாடநெறியில் நீங்கள் என்ன கற்றுக்கொள்வீர்கள்?",
+        curriculumSubheadline: "அடிப்படை தொடக்கம் முதல் 20 பிரிவுகளில் சரளமான உரையாடல் வரை.",
+        feat1Title: "துல்லியமான உச்சரிப்பு",
+        feat1Desc: "தமிழ் ஒலியியலுடன் இணைக்கப்பட்ட செர்பிய அசை உச்சரிப்பு வழிகாட்டி; நினைவாற்றலுக்காக இரண்டு முறை ஒலிக்கப்படுகிறது.",
+        feat2Title: "இருமொழி வாக்கிய நடை",
+        feat2Desc: "ஒவ்வொரு வார்த்தைக்கும் நிஜ வாழ்க்கைக்குரிய உதாரண வாக்கியங்கள் தமிழ் மற்றும் ஆங்கில விளக்கங்களுடன்.",
+        feat3Title: "20 பிரிவுகள் (ஒவ்வொன்றும் 50 சொற்கள்)",
+        feat3Desc: "50 வார்த்தைகள் முடித்ததும் அடுத்த பிரிவு திறக்கும்; வாழ்த்து இசை மற்றும் வண்ண வெடிகளுடன் கொண்டாட்டம்.",
+        feat4Title: "அங்கீகரிக்கப்பட்ட A1 சான்றிதழ்",
+        feat4Desc: "1000 வார்த்தைகளையும் படித்து முடித்ததும் உங்களது பெயருடன் தனிப்பயனாக்கப்பட்ட அதிகாரப்பூர்வ சான்றிதழ் பெறலாம்.",
+        syllabusHeader: "முழுமையான 20 பயிற்சிப் பிரிவுகள் (A1 முதல் A2 வரை)",
+        syllabusSub: "ஒவ்வொரு பிரிவிலும் 50 அத்தியாவசிய சொற்கள், தமிழ் உச்சரிப்பு மற்றும் வாக்கிய உதாரணங்களுடன்.",
+        roadmapCtaNote: "தமிழ் மற்றும் ஆங்கிலம் பேசுவோருக்கான 100% இலவச கல்வி முயற்சி.",
+        roadmapDonateBtn: "❤️ தளம் தொடர்ந்து இயங்க ஆதரவளிக்கவும்"
       }
     };
 
-    // Synthesized Fanfare (Web Audio API)
     let audioCtx = null;
     function getAudioContext() {
       if (!audioCtx) {
@@ -2629,21 +2937,17 @@
       try {
         const ctx = getAudioContext();
         const now = ctx.currentTime;
-
         const notes = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99];
         notes.forEach((freq, idx) => {
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = 'triangle';
           osc.frequency.setValueAtTime(freq, now + (idx * 0.08));
-          
           gain.gain.setValueAtTime(0, now + (idx * 0.08));
           gain.gain.linearRampToValueAtTime(0.18, now + (idx * 0.08) + 0.04);
           gain.gain.exponentialRampToValueAtTime(0.001, now + (idx * 0.08) + 1.2);
-
           osc.connect(gain);
           gain.connect(ctx.destination);
-
           osc.start(now + (idx * 0.08));
           osc.stop(now + (idx * 0.08) + 1.3);
         });
@@ -2657,7 +2961,6 @@
 
         const noise = ctx.createBufferSource();
         noise.buffer = buffer;
-
         const filter = ctx.createBiquadFilter();
         filter.type = 'bandpass';
         filter.frequency.setValueAtTime(800, now);
@@ -2680,18 +2983,15 @@
       }
     }
 
-    // Confetti Fireworks Cannon
     function triggerConfettiCannon() {
       if (typeof confetti === 'function') {
         const count = 200;
         const defaults = { origin: { y: 0.65 }, zIndex: 9999 };
-
         function fire(particleRatio, opts) {
           confetti(Object.assign({}, defaults, opts, {
             particleCount: Math.floor(count * particleRatio)
           }));
         }
-
         fire(0.25, { spread: 26, startVelocity: 55, colors: ['#6366f1', '#38bdf8'] });
         fire(0.2, { spread: 60, colors: ['#10b981', '#fbbf24'] });
         fire(0.35, { spread: 100, decay: 0.91, scalar: 0.9, colors: ['#f43f5e', '#a855f7'] });
@@ -2700,7 +3000,6 @@
       }
     }
 
-    // State
     let savedIndex = parseInt(CookieManager.get('st_current_index'), 10);
     let savedCompleted = parseInt(CookieManager.get('st_completed_count'), 10);
     let savedAutoPlay = CookieManager.get('st_auto_play');
@@ -2714,7 +3013,6 @@
     let highestMilestoneShown = savedHighestMilestone;
     let speechRunToken = 0;
 
-    // DOM Elements
     const soundWaveOverlay = document.getElementById("soundWaveOverlay");
     const audioVisualizer = document.getElementById("audioVisualizer");
     const catMascot = document.getElementById("catMascot");
@@ -2753,8 +3051,8 @@
     const milestoneTitle = document.getElementById("milestoneTitle");
     const milestoneMsg = document.getElementById("milestoneMsg");
     const milestoneActionBtn = document.getElementById("milestoneActionBtn");
-
     const liveLearnersCount = document.getElementById("liveLearnersCount");
+
     const liveActivityToast = document.getElementById("liveActivityToast");
     const toastAvatar = document.getElementById("toastAvatar");
     const toastStudentName = document.getElementById("toastStudentName");
@@ -2766,6 +3064,27 @@
     const copyUpiBtn = document.getElementById("copyUpiBtn");
     const amountPills = document.querySelectorAll(".amount-pills .pill");
 
+    function renderSyllabusAccordion() {
+      const container = document.getElementById("sessionsAccordionContainer");
+      let html = "";
+      sessionSyllabusData.forEach(item => {
+        const title = currentLang === 'ta' ? item.title_ta : item.title_en;
+        const desc = currentLang === 'ta' ? item.desc_ta : item.desc_en;
+        const badgeClass = item.level === 'A1' ? 'badge-session-a1' : 'badge-session-a2';
+        html += `
+          <div class="session-item">
+            <div class="session-item-top">
+              <span class="session-badge-sm ${badgeClass}">Session ${item.num} • ${item.level}</span>
+              <span class="session-words-count">Words ${item.words}</span>
+            </div>
+            <div class="session-title">${title}</div>
+            <div class="session-desc">${desc}</div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
     function saveState() {
       CookieManager.set('st_current_index', currentIndex);
       CookieManager.set('st_completed_count', completedCount);
@@ -2773,7 +3092,6 @@
       CookieManager.set('st_milestone_shown', highestMilestoneShown);
     }
 
-    // Toggle Sound Waves with 50% opacity during active speech
     function setAudioPlayingState(isPlaying) {
       if (isPlaying) {
         soundWaveOverlay.classList.add("active");
@@ -2788,7 +3106,6 @@
       }
     }
 
-    // Serbian TTS
     function playSerbianAudio(rawText, onComplete) {
       if (!('speechSynthesis' in window)) {
         if (onComplete) onComplete();
@@ -2819,26 +3136,11 @@
       }
 
       utterance.rate = 0.88;
-
-      utterance.onend = () => {
-        if (onComplete) {
-          onComplete();
-        } else {
-          setAudioPlayingState(false);
-        }
-      };
-      utterance.onerror = () => {
-        if (onComplete) {
-          onComplete();
-        } else {
-          setAudioPlayingState(false);
-        }
-      };
-
+      utterance.onend = () => { if (onComplete) onComplete(); else setAudioPlayingState(false); };
+      utterance.onerror = () => { if (onComplete) onComplete(); else setAudioPlayingState(false); };
       window.speechSynthesis.speak(utterance);
     }
 
-    // Tamil TTS
     function playTamilAudio(rawText, onComplete) {
       if (!('speechSynthesis' in window)) {
         if (onComplete) onComplete();
@@ -2858,26 +3160,11 @@
       }
 
       utterance.rate = 0.92;
-
-      utterance.onend = () => {
-        if (onComplete) {
-          onComplete();
-        } else {
-          setAudioPlayingState(false);
-        }
-      };
-      utterance.onerror = () => {
-        if (onComplete) {
-          onComplete();
-        } else {
-          setAudioPlayingState(false);
-        }
-      };
-
+      utterance.onend = () => { if (onComplete) onComplete(); else setAudioPlayingState(false); };
+      utterance.onerror = () => { if (onComplete) onComplete(); else setAudioPlayingState(false); };
       window.speechSynthesis.speak(utterance);
     }
 
-    // 2x Repeat Loop: (Serbian -> Tamil) x 2 times
     function playSequentialAudio2x(item) {
       if (!('speechSynthesis' in window)) return;
       window.speechSynthesis.cancel();
@@ -2927,6 +3214,23 @@
       document.getElementById("donateTitle").innerText = t.donateTitle;
       document.getElementById("donateDesc").innerText = t.donateDesc;
       document.getElementById("currentLangLabel").innerText = lang === 'en' ? 'தமிழ் / English' : 'English / தமிழ்';
+
+      document.getElementById("curriculumHeadline").innerText = t.curriculumHeadline;
+      document.getElementById("curriculumSubheadline").innerText = t.curriculumSubheadline;
+      document.getElementById("feat1Title").innerText = t.feat1Title;
+      document.getElementById("feat1Desc").innerText = t.feat1Desc;
+      document.getElementById("feat2Title").innerText = t.feat2Title;
+      document.getElementById("feat2Desc").innerText = t.feat2Desc;
+      document.getElementById("feat3Title").innerText = t.feat3Title;
+      document.getElementById("feat3Desc").innerText = t.feat3Desc;
+      document.getElementById("feat4Title").innerText = t.feat4Title;
+      document.getElementById("feat4Desc").innerText = t.feat4Desc;
+      document.getElementById("syllabusHeader").innerText = t.syllabusHeader;
+      document.getElementById("syllabusSub").innerText = t.syllabusSub;
+      document.getElementById("roadmapCtaNote").innerText = t.roadmapCtaNote;
+      document.getElementById("roadmapDonateBtn").innerText = t.roadmapDonateBtn;
+
+      renderSyllabusAccordion();
       updateNextButtonState();
       updateUpiCard();
     }
@@ -2940,14 +3244,12 @@
       }
     }
 
-    // 50-Word Celebration with Cheers and Confetti
     function checkMilestone(wordNumber) {
       if (wordNumber % 50 === 0 && wordNumber > highestMilestoneShown) {
         highestMilestoneShown = wordNumber;
         saveState();
 
         const sessionNumber = wordNumber / 50;
-
         playCheersAndFanfareSound();
         triggerConfettiCannon();
 
@@ -2970,9 +3272,9 @@
           milestoneBadge.innerText = `Session ${String(sessionNumber).padStart(2, '0')} of 20 Completed`;
           milestoneTitle.innerText = currentLang === 'en' ? "Woohoo! 50 Words Mastered!" : "வாழ்த்துகள்! 50 சொற்கள் நிறைவு!";
           milestoneMsg.innerText = currentLang === 'en' 
-            ? `Fantastic work! You completed Word ${wordNumber} (Session ${sessionNumber}). Ready to crush words ${nextStart}–${nextEnd}?` 
-            : `அற்புதம்! நீங்கள் ${wordNumber} வார்த்தைகளை (பிரிவு ${sessionNumber}) வெற்றிகரமாக படித்துவிட்டீர்கள்! அடுத்த சொற்களுக்குச் செல்ல தயாரா (${nextStart}–${nextEnd})?`;
-          milestoneActionBtn.innerText = currentLang === 'en' ? "Ready for Next Words ➔" : "அடுத்த வார்த்தைகளுக்குச் செல்க ➔";
+            ? `Fantastic work! You completed Word ${wordNumber} (Session ${sessionNumber}). Ready to start Session ${sessionNumber + 1} (Words ${nextStart}–${nextEnd})?` 
+            : `அற்புதம்! நீங்கள் ${wordNumber} வார்த்தைகளை (பிரிவு ${sessionNumber}) வெற்றிகரமாக படித்துவிட்டீர்கள்! அடுத்த பிரிவு ${sessionNumber + 1}-க்குச் செல்ல தயாரா (${nextStart}–${nextEnd})?`;
+          milestoneActionBtn.innerText = currentLang === 'en' ? "Jump to Next Session ➔" : "அடுத்த பயிற்சிப் பிரிவுக்குச் செல்க ➔";
           milestoneActionBtn.onclick = () => {
             milestoneModal.style.display = 'none';
             if (currentIndex < totalWords - 1) {
@@ -3019,7 +3321,6 @@
       }
     }
 
-    // 50+ Graduates Carousel Generator
     const graduateProfiles = [
       { name: "Praveen K.", bg: "#4f46e5", gen: "men" },
       { name: "Manoj R.", bg: "#06b6d4", gen: "men" },
@@ -3030,58 +3331,12 @@
       { name: "Suresh B.", bg: "#3b82f6", gen: "men" },
       { name: "Vignesh T.", bg: "#6366f1", gen: "men" },
       { name: "Aarthi N.", bg: "#14b8a6", gen: "women" },
-      { name: "Karthik J.", bg: "#e11d48", gen: "men" },
-      { name: "Vijay G.", bg: "#0ea5e9", gen: "men" },
-      { name: "Meena L.", bg: "#a855f7", gen: "women" },
-      { name: "Santhosh P.", bg: "#059669", gen: "men" },
-      { name: "Deepa K.", bg: "#f43f5e", gen: "women" },
-      { name: "Rajesh S.", bg: "#2563eb", gen: "men" },
-      { name: "Divya M.", bg: "#d946ef", gen: "women" },
-      { name: "Saravanan R.", bg: "#0284c7", gen: "men" },
-      { name: "Nandhini P.", bg: "#10b981", gen: "women" },
-      { name: "Gokul V.", bg: "#f97316", gen: "men" },
-      { name: "Bhavani E.", bg: "#84cc16", gen: "women" },
-      { name: "Arun K.", bg: "#6366f1", gen: "men" },
-      { name: "Sneha B.", bg: "#ec4899", gen: "women" },
-      { name: "Balaji N.", bg: "#0d9488", gen: "men" },
-      { name: "Shalini T.", bg: "#f59e0b", gen: "women" },
-      { name: "Madhan K.", bg: "#3b82f6", gen: "men" },
-      { name: "Pavithra R.", bg: "#a855f7", gen: "women" },
-      { name: "Hariharan S.", bg: "#06b6d4", gen: "men" },
-      { name: "Keerthana M.", bg: "#10b981", gen: "women" },
-      { name: "Yuvaraj P.", bg: "#ef4444", gen: "men" },
-      { name: "Revathi G.", bg: "#e11d48", gen: "women" },
-      { name: "Mohanraj B.", bg: "#4f46e5", gen: "men" },
-      { name: "Swetha S.", bg: "#14b8a6", gen: "women" },
-      { name: "Jagan K.", bg: "#2563eb", gen: "men" },
-      { name: "Gayathri A.", bg: "#f43f5e", gen: "women" },
-      { name: "Vasanth R.", bg: "#059669", gen: "men" },
-      { name: "Lavanya C.", bg: "#8b5cf6", gen: "women" },
-      { name: "Selvam P.", bg: "#0284c7", gen: "men" },
-      { name: "Anitha M.", bg: "#f97316", gen: "women" },
-      { name: "Ramesh D.", bg: "#6366f1", gen: "men" },
-      { name: "Geetha S.", bg: "#ec4899", gen: "women" },
-      { name: "Prabu V.", bg: "#10b981", gen: "men" },
-      { name: "Suganya K.", bg: "#d946ef", gen: "women" },
-      { name: "Ganesh T.", bg: "#06b6d4", gen: "men" },
-      { name: "Ramya N.", bg: "#3b82f6", gen: "women" },
-      { name: "Sathish B.", bg: "#f59e0b", gen: "men" },
-      { name: "Kokila E.", bg: "#14b8a6", gen: "women" },
-      { name: "Muthu K.", bg: "#2563eb", gen: "men" },
-      { name: "Archana P.", bg: "#a855f7", gen: "women" },
-      { name: "Ilango S.", bg: "#059669", gen: "men" },
-      { name: "Malathi R.", bg: "#e11d48", gen: "women" },
-      { name: "Naveen M.", bg: "#4f46e5", gen: "men" },
-      { name: "Sindhu V.", bg: "#06b6d4", gen: "women" },
-      { name: "Barath C.", bg: "#10b981", gen: "men" },
-      { name: "Janani T.", bg: "#ec4899", gen: "women" },
-      { name: "Thangavel S.", bg: "#f59e0b", gen: "men" }
+      { name: "Karthik J.", bg: "#e11d48", gen: "men" }
     ];
 
     function buildGraduatesMarquee() {
       const track = document.getElementById("graduatesMarquee");
-      const fullList = [...graduateProfiles, ...graduateProfiles];
-      
+      const fullList = [...graduateProfiles, ...graduateProfiles, ...graduateProfiles];
       let html = "";
       fullList.forEach((grad, idx) => {
         const photoNum = (idx % 60) + 1;
@@ -3099,7 +3354,6 @@
       track.innerHTML = html;
     }
 
-    // DELAYED NOTIFICATIONS: Learning Milestones + Exactly 5 Donors with mixed amounts
     const mixedEvents = [
       { type: "learn", name: "Praveen", text: "reached Word #50 (Session 01)!" },
       { type: "learn", name: "Manoj", text: "completed Session 04 (Word 200)!" },
@@ -3109,9 +3363,7 @@
       { type: "learn", name: "Kavitha S.", text: "claimed Verified A1 Certificate!" },
       { type: "donate", name: "Suresh Babu", text: "contributed ₹999 to the project!", amount: "₹999" },
       { type: "learn", name: "Dinesh C.", text: "reached Word #50!" },
-      { type: "donate", name: "Vigneshwaran", text: "sent ₹199 gift to the creator!", amount: "₹199" },
-      { type: "learn", name: "Priya V.", text: "completed Word #100!" },
-      { type: "donate", name: "Santhosh Kumar", text: "donated ₹499 to support the project!", amount: "₹499" }
+      { type: "donate", name: "Vigneshwaran", text: "sent ₹199 gift to the creator!", amount: "₹199" }
     ];
 
     function showLiveStudentNotification() {
@@ -3130,26 +3382,20 @@
       }
 
       liveActivityToast.classList.add("show");
-
-      setTimeout(() => {
-        liveActivityToast.classList.remove("show");
-      }, 5000);
+      setTimeout(() => { liveActivityToast.classList.remove("show"); }, 5000);
     }
 
-    // Online Learner Counter below 100 (range: 1 to 100)
-    let activeUsers = Math.floor(Math.random() * 40) + 45; // starts around 45-85
+    let activeUsers = Math.floor(Math.random() * 40) + 45;
     function updateLiveCount() {
-      const delta = Math.floor(Math.random() * 7) - 3; // -3 to +3
+      const delta = Math.floor(Math.random() * 7) - 3;
       activeUsers = Math.min(99, Math.max(12, activeUsers + delta));
       liveLearnersCount.innerText = activeUsers;
     }
 
-    // Notifications delayed to every 18 seconds
     setInterval(updateLiveCount, 5500);
-    setInterval(showLiveStudentNotification, 18000);
-    setTimeout(showLiveStudentNotification, 4500); // initial delay before 1st popup
+    setInterval(showLiveStudentNotification, 16000);
+    setTimeout(showLiveStudentNotification, 4000);
 
-    // Audio & Navigation Listeners
     listenBtn.addEventListener('click', () => playSequentialAudio2x(fullDataset[currentIndex]));
     catMascot.addEventListener('click', () => playSequentialAudio2x(fullDataset[currentIndex]));
     listenExampleBtn.addEventListener('click', () => {
@@ -3226,10 +3472,10 @@
     function updateAutoPlayUI() {
       if (isAutoPlay) {
         autoPlayToggleBtn.classList.add('active');
-        autoPlayLabel.innerText = "Auto-Audio: ON (2x Loop)";
+        autoPlayLabel.innerText = "Auto: ON (2x Loop)";
       } else {
         autoPlayToggleBtn.classList.remove('active');
-        autoPlayLabel.innerText = "Auto-Audio: OFF";
+        autoPlayLabel.innerText = "Auto: OFF";
       }
     }
 
@@ -3308,7 +3554,6 @@
       document.getElementById("certModal").style.display = "flex";
     });
 
-    // Certificate Generator
     document.getElementById("downloadCertBtn").addEventListener('click', () => {
       const name = document.getElementById("learnerName").value.trim() || "Language Scholar";
       const canvas = document.getElementById("certCanvas");
@@ -3383,7 +3628,6 @@
       window.speechSynthesis.onvoiceschanged = () => {};
     }
 
-    // App Startup
     buildGraduatesMarquee();
     updateAutoPlayUI();
     applyLanguage('en');
