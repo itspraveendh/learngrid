@@ -419,6 +419,95 @@
       overflow: hidden;
     }
 
+    /* AUTOPLAY VIDEO INTRO SECTION */
+    .founder-intro-section {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto 2.5rem auto;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .video-hero-frame {
+      position: relative;
+      width: 100%;
+      border-radius: 1.75rem;
+      overflow: hidden;
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(99, 102, 241, 0.2);
+      background: #000;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-hero-player {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-overlay-actions {
+      position: absolute;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 5;
+      flex-wrap: wrap;
+    }
+
+    .video-action-btn {
+      opacity: 0.6;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.15rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .video-action-btn:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn-video-donate {
+      background: rgba(245, 158, 11, 0.9);
+      color: #111827;
+      border: 1px solid rgba(245, 158, 11, 0.6);
+    }
+
+    .btn-video-whatsapp {
+      background: rgba(37, 211, 102, 0.9);
+      color: #ffffff;
+      border: 1px solid rgba(37, 211, 102, 0.6);
+    }
+
+    .video-unmute-cue {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      background: rgba(17, 24, 39, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+      opacity: 0.6;
+    }
     .graduates-head {
       max-width: 1100px;
       margin: 0 auto 0.85rem auto;
@@ -687,7 +776,128 @@
       background: rgba(245, 158, 11, 0.25);
       color: #fff;
     }
-
+/* IN-PROGRESS ADVANCED COURSE */
+    .in-progress-course-section {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto 3rem auto;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 10;
+    }
+    .in-progress-box {
+      background: linear-gradient(135deg, rgba(30, 27, 75, 0.85), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .in-progress-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #f59e0b;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .in-progress-title {
+      font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.65rem;
+    }
+    .in-progress-desc {
+      font-size: 0.92rem;
+      color: #cbd5e1;
+      max-width: 780px;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+    .a2-demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .a2-demo-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--secondary);
+      border-radius: 0.9rem;
+      padding: 1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .a2-demo-sr {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .a2-demo-pron {
+      font-size: 0.78rem;
+      color: #93c5fd;
+      font-weight: 600;
+    }
+    .a2-demo-en {
+      font-size: 0.84rem;
+      color: #e2e8f0;
+    }
+    .a2-demo-ta {
+      font-size: 0.86rem;
+      color: #34d399;
+      font-weight: 600;
+    }
+    .in-progress-support-bar {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1.15rem;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .support-bar-text h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+    .support-bar-text p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .btn-support-gold {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.75rem;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-support-gold:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
     .app-workspace {
       max-width: 880px;
       margin: 0 auto;
@@ -1251,6 +1461,8 @@
       .nav-actions { width: 100%; justify-content: space-between; }
       .controls { flex-direction: row; }
       .btn { font-size: 0.85rem; padding: 0.85rem 0.65rem; }
+      .video-overlay-actions { bottom: 0.75rem; right: 0.75rem; }
+      .video-action-btn { padding: 0.5rem 0.85rem; font-size: 0.78rem; }
     }
   </style>
 </head>
@@ -1351,61 +1563,31 @@
       </div>
     </div>
   </section>
+ <!-- AUTOPLAY VIDEO INTRO SECTION WITH 60% OPACITY OVERLAYS -->
+  <section class="founder-intro-section">
+    <div class="video-hero-frame">
+      <div class="video-unmute-cue">🔊 Founder Intro Video (Autoplay)</div>
+      
+      <video class="video-hero-player" id="founderIntroVideo" autoplay playsinline loop controls poster="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80">
+        <source src="v1.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
 
-  <section class="course-info-section">
-    <div class="section-headline">
-      <h2 id="curriculumHeadline">What You Will Learn in this Course</h2>
-      <p id="curriculumSubheadline">From absolute zero to confident everyday conversation across 20 modular sessions.</p>
-    </div>
+      <div class="video-overlay-actions">
+        <a href="#donateProject" class="video-action-btn btn-video-donate" title="Donate to Support">
+          ❤️ <span>Donate Project</span>
+        </a>
 
-    <div class="curriculum-grid">
-      <div class="curriculum-card">
-        <span class="card-icon">🗣️</span>
-        <h3 id="feat1Title">Authentic Pronunciation</h3>
-        <p id="feat1Desc">Accurate syllable-by-syllable Serbian transliteration paired with clear Tamil sounds, repeated twice for memory retention.</p>
-      </div>
-
-      <div class="curriculum-card">
-        <span class="card-icon">🔄</span>
-        <h3 id="feat2Title">Bilingual Sentence Mastery</h3>
-        <p id="feat2Desc">Every word is placed into a practical sentence translated simultaneously into Serbian, English, and conversational Tamil.</p>
-      </div>
-
-      <div class="curriculum-card">
-        <span class="card-icon">⚡</span>
-        <h3 id="feat3Title">20 Structured 50-Word Sessions</h3>
-        <p id="feat3Desc">Complete 50 words to unlock the next session. Celebrate every milestone with sound fanfare, confetti, and auto-tracked progress.</p>
-      </div>
-
-      <div class="curriculum-card">
-        <span class="card-icon">📜</span>
-        <h3 id="feat4Title">Verified A1 Certificate</h3>
-        <p id="feat4Desc">Master all 1,000 words across 20 sessions to generate and download an official personalized completion certificate.</p>
-      </div>
-    </div>
-
-    <div class="sessions-syllabus-container">
-      <div class="sessions-syllabus-header">
-        <div>
-          <h3 id="syllabusHeader">Complete 20-Session Course Syllabus (A1 to A2)</h3>
-          <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;" id="syllabusSub">50 curated vocabulary items per session with pronunciation and contextual dialogues.</p>
-        </div>
-        <span class="session-badge" style="margin-bottom:0;">20 Sessions • 1,000 Words</span>
-      </div>
-
-      <div class="sessions-accordion" id="sessionsAccordionContainer">
-        <!-- Rendered dynamically by JavaScript in English and Tamil -->
-      </div>
-
-      <div class="roadmap-cta-bar">
-        <p id="roadmapCtaNote">100% Free educational initiative for Tamil and English speakers.</p>
-        <a href="#donateProject" class="btn-donate-secondary" id="roadmapDonateBtn">
-          ❤️ Donate to Keep Course Free
+        <a href="https://wa.me/918667536739?text=Hello%20Praveen,%20I%20am%20learning%20Serbian%20on%20LearnGrid.IN!" target="_blank" rel="noopener noreferrer" class="video-action-btn btn-video-whatsapp" title="Message Founder on WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.149.929 3.182 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.768-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.073-1.127-.065-.268-.086-.612-.206-1.047-.394-1.848-.799-3.048-2.673-3.14-2.796-.093-.123-.755-.999-.755-1.907 0-.907.477-1.353.646-1.538.169-.185.37-.231.493-.231.124 0 .248.001.355.006.113.006.264-.042.413.317.154.37.525 1.279.57 1.371.046.093.077.201.015.324-.061.123-.092.2-.184.308-.093.108-.195.241-.278.324-.093.093-.19.194-.082.38.108.185.481.794 1.034 1.287.712.636 1.312.833 1.498.926.185.093.293.077.401-.046.108-.124.463-.54.586-.725.124-.185.248-.154.417-.093.169.062 1.08.51 1.265.602.185.093.308.139.355.216.046.077.046.448-.098.853z"/>
+          </svg>
+          <span>WhatsApp Chat</span>
         </a>
       </div>
     </div>
   </section>
-
+  
   <main class="app-workspace">
     <div class="tracker-card">
       <div class="tracker-stats">
@@ -1525,6 +1707,130 @@
       <button id="demo1000Btn" style="background:rgba(245, 158, 11, 0.2); color:#fbbf24;">⚡ Test Word 1000</button>
     </div>
   </main>
+<section class="course-info-section">
+    <div class="section-headline">
+      <h2 id="curriculumHeadline">What You Will Learn in this Course</h2>
+      <p id="curriculumSubheadline">From absolute zero to confident everyday conversation across 20 modular sessions.</p>
+    </div>
+
+    <div class="curriculum-grid">
+      <div class="curriculum-card">
+        <span class="card-icon">🗣️</span>
+        <h3 id="feat1Title">Authentic Pronunciation</h3>
+        <p id="feat1Desc">Accurate syllable-by-syllable Serbian transliteration paired with clear Tamil sounds, repeated twice for memory retention.</p>
+      </div>
+
+      <div class="curriculum-card">
+        <span class="card-icon">🔄</span>
+        <h3 id="feat2Title">Bilingual Sentence Mastery</h3>
+        <p id="feat2Desc">Every word is placed into a practical sentence translated simultaneously into Serbian, English, and conversational Tamil.</p>
+      </div>
+
+      <div class="curriculum-card">
+        <span class="card-icon">⚡</span>
+        <h3 id="feat3Title">20 Structured 50-Word Sessions</h3>
+        <p id="feat3Desc">Complete 50 words to unlock the next session. Celebrate every milestone with sound fanfare, confetti, and auto-tracked progress.</p>
+      </div>
+
+      <div class="curriculum-card">
+        <span class="card-icon">📜</span>
+        <h3 id="feat4Title">Verified A1 Certificate</h3>
+        <p id="feat4Desc">Master all 1,000 words across 20 sessions to generate and download an official personalized completion certificate.</p>
+      </div>
+    </div>
+
+    <div class="sessions-syllabus-container">
+      <div class="sessions-syllabus-header">
+        <div>
+          <h3 id="syllabusHeader">Complete 20-Session Course Syllabus (A1 to A2)</h3>
+          <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;" id="syllabusSub">50 curated vocabulary items per session with pronunciation and contextual dialogues.</p>
+        </div>
+        <span class="session-badge" style="margin-bottom:0;">20 Sessions • 1,000 Words</span>
+      </div>
+
+      <div class="sessions-accordion" id="sessionsAccordionContainer"></div>
+
+      <div class="roadmap-cta-bar">
+        <p id="roadmapCtaNote">100% Free educational initiative for Tamil and English speakers.</p>
+        <a href="#donateProject" class="btn-donate-secondary" id="roadmapDonateBtn">
+          ❤️ Donate to Keep Course Free
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANCED A2+ IN-PROGRESS SECTION -->
+  <section class="in-progress-course-section">
+    <div class="in-progress-box">
+      <div class="in-progress-badge" id="a2ProgressBadge">🚧 In Progress • Advanced Level Course</div>
+      <h2 class="in-progress-title" id="a2CourseTitle">Next Stage: Serbian Level A2+ Conversational Fluency</h2>
+      <p class="in-progress-desc" id="a2CourseDesc">
+        Currently under active development! We are designing our next full-stack syllabus covering past/future tenses, Balkan workplace scenarios, business negotiation, and practical European paperwork. Explore our 5-sentence sample demo below:
+      </p>
+
+      <div class="a2-demo-grid">
+        <div class="a2-demo-card">
+          <div class="a2-demo-sr">
+            <span>1. Hteo bih da otvorim račun u banci.</span>
+            <button class="audio-btn-sm" onclick="playSingleTTS('Hteo bih da otvorim račun u banci.', 'sr-RS')" title="Listen Serbian">▶</button>
+          </div>
+          <div class="a2-demo-pron">🗣 Hte-o beeh da ot-vo-reem ra-choon oo ban-tsee</div>
+          <div class="a2-demo-en">I would like to open an account in the bank.</div>
+          <div class="a2-demo-ta">நான் வங்கியில் ஒரு கணக்கு திறக்க விரும்புகிறேன்.</div>
+        </div>
+
+        <div class="a2-demo-card">
+          <div class="a2-demo-sr">
+            <span>2. Da li možete da mi pomognete sa ovim dokumentom?</span>
+            <button class="audio-btn-sm" onclick="playSingleTTS('Da li možete da mi pomognete sa ovim dokumentom?', 'sr-RS')" title="Listen Serbian">▶</button>
+          </div>
+          <div class="a2-demo-pron">🗣 Da lee mo-zhe-te da mee po-mog-ne-te sa o-veem do-koo-men-tom?</div>
+          <div class="a2-demo-en">Could you please help me with this document?</div>
+          <div class="a2-demo-ta">தயவுசெய்து இந்த ஆவணத்தில் எனக்கு உதவ முடியுமா?</div>
+        </div>
+
+        <div class="a2-demo-card">
+          <div class="a2-demo-sr">
+            <span>3. Koliko dugo traje vožnja vozom do Novog Sada?</span>
+            <button class="audio-btn-sm" onclick="playSingleTTS('Koliko dugo traje vožnja vozom do Novog Sada?', 'sr-RS')" title="Listen Serbian">▶</button>
+          </div>
+          <div class="a2-demo-pron">🗣 Ko-lee-ko doo-go tra-ye vozh-nya vo-zom do No-vog Sa-da?</div>
+          <div class="a2-demo-en">How long is the train ride to Novi Sad?</div>
+          <div class="a2-demo-ta">நோவி சாட் செல்ல ரயில் பயணம் எவ்வளவு நேரம் ஆகும்?</div>
+        </div>
+
+        <div class="a2-demo-card">
+          <div class="a2-demo-sr">
+            <span>4. Sutra imam važan poslovni intervju u Beogradu.</span>
+            <button class="audio-btn-sm" onclick="playSingleTTS('Sutra imam važan poslovni intervju u Beogradu.', 'sr-RS')" title="Listen Serbian">▶</button>
+          </div>
+          <div class="a2-demo-pron">🗣 Soo-tra ee-mam va-zhan pos-lov-nee een-ter-vyoo oo Be-o-gra-doo</div>
+          <div class="a2-demo-en">Tomorrow I have an important job interview in Belgrade.</div>
+          <div class="a2-demo-ta">நாளை எனக்கு பெல்கிரேடில் முக்கியமான வேலை நேர்காணல் உள்ளது.</div>
+        </div>
+
+        <div class="a2-demo-card">
+          <div class="a2-demo-sr">
+            <span>5. Želim da iznajmim namešten stan u centru grada.</span>
+            <button class="audio-btn-sm" onclick="playSingleTTS('Želim da iznajmim namešten stan u centru grada.', 'sr-RS')" title="Listen Serbian">▶</button>
+          </div>
+          <div class="a2-demo-pron">🗣 Zhe-leem da eez-nay-meem na-mesh-ten stan oo tsen-troo gra-da</div>
+          <div class="a2-demo-en">I want to rent a furnished apartment in the city center.</div>
+          <div class="a2-demo-ta">நகர மையத்தில் ஒரு பர்னிச்சர் உள்ள வீட்டை வாடகைக்கு எடுக்க விரும்புகிறேன்.</div>
+        </div>
+      </div>
+
+      <div class="in-progress-support-bar">
+        <div class="support-bar-text">
+          <h4 id="supportBarTitle">Support the Launch of our Advanced A2+ Serbian Curriculum</h4>
+          <p id="supportBarDesc">Your contribution accelerates audio recordings, AI servers, and free public access for the whole community.</p>
+        </div>
+        <a href="#donateProject" class="btn-support-gold" id="supportBarBtn">
+          ☕ Back this Project via UPI
+        </a>
+      </div>
+    </div>
+  </section>
 
   <section class="donate-section" id="donateProject">
     <div class="donate-container">
@@ -3627,7 +3933,17 @@
     if ('speechSynthesis' in window) {
       window.speechSynthesis.onvoiceschanged = () => {};
     }
-
+const videoElem = document.getElementById("founderIntroVideo");
+    if (videoElem) {
+      videoElem.muted = false;
+      const playPromise = videoElem.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          videoElem.muted = true;
+          videoElem.play();
+        });
+      }
+    }
     buildGraduatesMarquee();
     updateAutoPlayUI();
     applyLanguage('en');
@@ -3636,6 +3952,9 @@
 
     document.body.addEventListener('click', function unlockAudio() {
       getAudioContext();
+      if (videoElem && videoElem.muted) {
+        videoElem.muted = false;
+      }
       if (isAutoPlay) {
         playSequentialAudio2x(fullDataset[currentIndex]);
       }
